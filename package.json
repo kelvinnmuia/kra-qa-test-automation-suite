@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha-play 'tests/**/*.spec.ts' --require ts-node/register --timeout 60000"
+    "workflow": "npx playwright codegen https://icmsdev-app01.kra.go.ke:36081 --ignore-https-errors --output=workflows/workflow-$(date +\"%Y%m%d%H%M%S\").ts",
+    "test": "npx playwright test"
   },
   "keywords": [],
   "author": "",
