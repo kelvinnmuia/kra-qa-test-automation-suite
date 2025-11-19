@@ -25,7 +25,16 @@ test('test', async ({ page }) => {
   await page.locator('iframe').nth(3).contentFrame().locator('input[name="b42_item_price"]').click();
   await page.locator('iframe').nth(3).contentFrame().locator('input[name="b42_item_price"]').fill('7000');
   await page.locator('iframe').nth(3).contentFrame().getByText('Procedure').first().click();
-  await page.locator('iframe').nth(3).contentFrame().getByText('Attachments').first().click();
-  await page.locator('iframe').nth(3).contentFrame().getByText('Details').first().click();
-  await page.locator('iframe').nth(3).contentFrame().getByRole('button', { name: 'Save' }).click();
+  await page.locator('iframe').nth(1).contentFrame().getByText('Attachments').first().click();
+  await page.locator('iframe').nth(1).contentFrame().getByRole('link').click();
+  await page.locator('iframe').nth(1).contentFrame().getByRole('cell').filter({ hasText: /^$/ }).nth(2).click();
+  await page.locator('iframe').nth(1).contentFrame().locator('#List9030 > .ui_list_ListOfValue_button').click();
+  await page.locator('iframe').nth(1).contentFrame().getByText('General', { exact: true }).click();
+  await page.locator('iframe').nth(1).contentFrame().getByRole('row', { name: 'A General', exact: true }).locator('input[name="reference"]').click();
+  await page.locator('iframe').nth(1).contentFrame().getByText('205').click();
+  await page.locator('iframe').nth(1).contentFrame().locator('input[name="serial_num"]').click();
+  await page.locator('iframe').nth(1).contentFrame().locator('input[name="serial_num"]').fill('INV003');
+  await page.locator('iframe').nth(1).contentFrame().getByRole('button', { name: 'Save' }).click();
+  await page.locator('iframe').nth(1).contentFrame().locator('#Field10996').getByRole('radio').check();
+
 });
